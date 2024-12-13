@@ -2,6 +2,7 @@ from tkinter import *
 import random
 import sys
 import os
+from tkinter import messagebox
 ###Constants
 FONT_NAME = "Courier"
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -30,7 +31,13 @@ def save_login():
         website = website_entry.get()
         user = user_entry.get()
         password = password_entry.get()
-        file.writelines(f'{website} | {user} | {password}\n')
+
+        is_ok = messagebox.askokcancel(title=website, message=f'Confirm Details: \nEmail: {user} \nPassword: {password}')
+        if is_ok:
+            file.writelines(f'{website} | {user} | {password}\n')
+            website_entry.delete(0,END)
+            user_entry.delete(0, END)
+            password_entry.delete(0, END)
 # ---------------------------- UI SETUP ------------------------------- #
 tk = Tk()
 tk.title('Password Manager - by SneezeGUI')
