@@ -9,7 +9,7 @@ import json
 FONT_NAME = "Courier"
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def generate_pass():
-    clear()
+    password_entry.delete(0, 'end')
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
@@ -24,8 +24,6 @@ def generate_pass():
     #copy to clipboard auto
     tk.clipboard_clear()
     tk.clipboard_append(final_pass)
-def clear():
-    password_entry.delete(0, 'end')
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save_login():
 
@@ -64,6 +62,7 @@ def save_login():
                 json.dump(data, data_file, indent=4)
         finally:
             website_entry.delete(0, END)
+            user_entry.delete(0, END)
             password_entry.delete(0, END)
 
 
@@ -88,7 +87,10 @@ def search():
             tk.clipboard_append(f'{email}:{password}')
         else:
             messagebox.showinfo(title="Error", message=f"No details for {website} exists.")
-
+    finally:
+        website_entry.delete(0, END)
+        user_entry.delete(0,END)
+        password_entry.delete(0, END)
 #     website = website_entry.get()
 #     if website == '':
 #         messagebox.askokcancel(title='Error', message=f'No Website Entered')
