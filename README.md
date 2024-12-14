@@ -1,4 +1,4 @@
-![Alt Text](https://i.imgur.com/Xa9rSXF.gif)
+![Alt Text](https://i.imgur.com/aJDjZ8L.gif)
 
 KEY-FEATURES
 - saves to local file inside itself
