@@ -124,7 +124,7 @@ logo = PhotoImage(file=image_path)
 data_path = resource_path('data/data.json')
 
 canvas = Canvas(width=200, height=200)
-canvas.grid(column=1,row=0, columnspan=2)
+canvas.grid(column=1,row=0,)
 canvas.create_image(100, 100,image=logo,)
 
 
@@ -137,7 +137,7 @@ canvas.create_image(100, 100,image=logo,)
 website_label = Label(text='Website:', font=('Courier', 10, 'bold'))
 website_label.grid(column=0,row=1)
 
-website_entry = Entry(width=21,)
+website_entry = Entry(width=32,)
 website_entry.grid(column=1,row=1,)
 website_entry.focus()
 
@@ -145,23 +145,23 @@ website_entry.focus()
 user_label = Label(text='Username/Email:', font=('Courier', 10, 'bold'))
 user_label.grid(column=0,row=2)
 
-user_entry = Entry(width=40)
-user_entry.grid(column=1,row=2,columnspan=4)
+user_entry = Entry(width=50)
+user_entry.grid(column=1,row=2,columnspan=3)
 
 #password
 password_label = Label(text='Password:', font=('Courier', 10, 'bold'))
 password_label.grid(column=0,row=3)
 
-password_entry = Entry(width=21)
-password_entry.grid(column=1,row=3)
+password_entry = Entry(width=32)
+password_entry.grid(column=1,row=3,)
 
 #buttons
 password_gen = Button(text='Generate Password',borderwidth=.5, highlightcolor='black',command=generate_pass)
-password_gen.grid(column=2,row=3,columnspan=3)
+password_gen.grid(column=2,row=3,)
 # save
-add = Button(text='Add to Database',width=30, command=save_login)
-add.grid(column=1,row=4,columnspan=3)
+add = Button(text='Add to Database',width=42, command=save_login,padx=2)
+add.grid(column=1,row=4,columnspan=2)
 #search
-search = Button(text='Search the Database',borderwidth=.5, highlightcolor='black',command=search)
+search = Button(text='Search Database',borderwidth=.5, highlightcolor='black',command=search, padx=8)
 search.grid(column=2,row=1)
 tk.mainloop()
